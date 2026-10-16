@@ -1,8 +1,9 @@
 import {Link} from 'react-router-dom';import {useCatalog} from '../store.jsx';import {priceText} from '../lib.js';import Carousel from '../components/Carousel.jsx';import Reveal from '../components/Reveal.jsx';
 const facts=[['Bazaar prices','Lots of items at ₹20, ₹99 and ₹100.'],['Retail + wholesale','Buy one piece or a full carton at trade rates.'],['Delivery all India','Order on WhatsApp, we ship to your city.'],['See before you buy','Unboxing and comparison videos for big items.']];
 const budgets=[20,100,500,2000];
-export default function Home(){const {categories,products,shop,wa}=useCatalog();
- const stick=categories.map(c=>products.find(p=>p.cat===c.id&&Number(p.price)>0&&Number(p.price)<=100)).filter(Boolean).slice(0,3);
+export default function Home(){const {categories,products,shop,wa,productFeaturedMap}=useCatalog();
+ const heroProducts=products.filter(p=>productFeaturedMap?.[p.id]?.has('hero_deals'));
+ const stick=(heroProducts.length>0?heroProducts:categories.map(c=>products.find(p=>p.cat===c.id&&Number(p.price)>0&&Number(p.price)<=100)).filter(Boolean)).slice(0,3);
  const belt=[...categories,...categories];
 return(<>
 <section className="hero"><div className="wrap hero-in"><div><h1>Ghar ka saaman, bazaar ke bhaav.</h1>

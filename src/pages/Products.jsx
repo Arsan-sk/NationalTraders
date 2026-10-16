@@ -1,9 +1,9 @@
 import {useState} from 'react';import {useSearchParams} from 'react-router-dom';import {useCatalog} from '../store.jsx';import ProductCard from '../components/ProductCard.jsx';
 const caps=[0,20,100,500,2000];
-export default function Products(){const {categories,products,wa}=useCatalog();const [sp,set]=useSearchParams();const [q,setQ]=useState('');
- const cat=sp.get('cat')||'all';const max=Number(sp.get('max'))||0;
+export default function Products(){const {categories,products,wa,featuredSections,productFeaturedMap}=useCatalog();const [sp,set]=useSearchParams();const [q,setQ]=useState('');
+ const cat=sp.get('cat')||'all';const sec=sp.get('sec')||'all';const max=Number(sp.get('max'))||0;
  const upd=o=>{const n=new URLSearchParams(sp);Object.entries(o).forEach(([k,v])=>v?n.set(k,v):n.delete(k));set(n)};
- const list=products.filter(p=>(cat==='all'||p.cat===cat)&&(!max||(Number(p.price)>0&&Number(p.price)<=max))&&p.name.toLowerCase().includes(q.trim().toLowerCase()));
+ const list=products.filter(p=>(cat==='all'||p.cat===cat)&&(sec==='all'||Boolean(productFeaturedMap?.[p.id]?.has(sec)))&&(!max||(Number(p.price)>0&&Number(p.price)<=max))&&p.name.toLowerCase().includes(q.trim().toLowerCase()));
 return(<section className="wrap sec"><h1>All products</h1>
 <input className="search" type="search" placeholder="Search products" aria-label="Search products" value={q} onChange={e=>setQ(e.target.value)}/>
 <div className="chips">{[{id:'all',label:'All'},...categories].map(c=><button key={c.id} className={cat===c.id?'on':''} onClick={()=>upd({cat:c.id==='all'?'':c.id})}>{c.label}</button>)}</div>
