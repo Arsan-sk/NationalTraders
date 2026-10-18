@@ -131,16 +131,94 @@ nav{width:100%;justify-content:space-between;gap:.25rem}nav a{flex:1;min-height:
 .fs-add-row{display:flex;gap:.5rem;margin-top:1rem;align-items:center;flex-wrap:wrap}
 
 /* Modal Popup for Create / Edit Product */
-.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:100;padding:1rem}
-.modal-box{background:#fff;border:3px solid var(--ink);border-radius:12px;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:1.5rem;box-shadow:0 12px 32px rgba(0,0,0,.3)}
-.modal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:100;padding:1rem;backdrop-filter:blur(4px)}
+.modal-box{background:#fff;border:3px solid var(--ink);border-radius:14px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;padding:1.5rem;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.modal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;border-bottom:1.5px solid #eee;padding-bottom:.8rem}
 .modal-h h2{margin:0;font-size:1.5rem}
 .close-btn{background:none;border:0;font-size:1.6rem;cursor:pointer;line-height:1}
-.img-modes{display:flex;gap:.5rem;margin:.4rem 0}
-.img-modes button{padding:.3rem .8rem;font-size:.9rem;border:1.5px solid var(--ink);border-radius:6px;background:#fff;cursor:pointer}
-.img-modes button.active{background:var(--ink);color:#fff}
-.img-preview-box{display:flex;align-items:center;gap:1rem;margin-top:.5rem;padding:.6rem;border:1px dashed #999;border-radius:8px}
-.img-preview-box img{width:80px;height:80px;object-fit:cover;border-radius:6px}
-.img-tag{font-size:.75rem;padding:.2rem .4rem;border-radius:4px;font-weight:600}
-.img-tag.storage{background:#e8f5e9;color:#2e7d32}
-.img-tag.url{background:#e3f2fd;color:#1565c0}
+.form-fieldset{border:1.5px solid #e0e0e0;border-radius:10px;padding:1rem;margin-bottom:1.2rem;background:#fafafa}
+.form-fieldset legend{font-weight:700;font-size:.95rem;padding:0 .5rem;color:var(--ink)}
+.img-preview-box{display:flex;align-items:center;gap:1rem;margin-top:.5rem;padding:.7rem;border:1.5px dashed #bbb;border-radius:8px;background:#fff}
+.img-preview-box img{width:70px;height:70px;object-fit:cover;border-radius:6px;border:1px solid #ccc}
+.img-tag{font-size:.75rem;padding:.2rem .5rem;border-radius:4px;font-weight:700;display:inline-block}
+.img-tag.storage{background:#e8f5e9;color:#2e7d32;border:1px solid #c8e6c9}
+.img-tag.url{background:#e3f2fd;color:#1565c0;border:1px solid #bbdefb}
+
+/* Responsive Mobile Product Cards for Admin */
+.adm-card-grid{display:grid;grid-template-columns:1fr;gap:.9rem}
+@media(min-width:680px){.adm-card-grid{grid-template-columns:repeat(2,1fr)}}
+.adm-prod-card{border:2px solid var(--ink);border-radius:12px;padding:1rem;background:#fff;display:flex;flex-direction:column;gap:.8rem;transition:box-shadow .2s}
+.adm-prod-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.adm-prod-card-top{display:flex;gap:.8rem;align-items:flex-start}
+.adm-prod-card-thumb{width:64px;height:64px;border-radius:8px;border:1.5px solid #ccc;background:var(--steel);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;font-size:1.8rem}
+.adm-prod-card-thumb img{width:100%;height:100%;object-fit:cover}
+.adm-prod-card-info{flex:1;min-width:0}
+.adm-prod-card-title{font-size:1.05rem;font-weight:700;margin:0 0 .2rem;color:var(--ink);line-height:1.2}
+.adm-prod-card-cat{display:inline-block;background:var(--steel);font-size:.78rem;font-weight:600;padding:.15rem .5rem;border-radius:4px;margin-bottom:.2rem}
+.adm-prod-card-price{display:inline-block;background:var(--tag);font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.95rem;padding:.1rem .5rem;border-radius:4px;border:1px dashed var(--ink)}
+.adm-prod-sec-pills{display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.4rem;border-top:1px solid #eee}
+.sec-pill-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .6rem;border:1.5px solid #ccc;border-radius:99px;font-size:.78rem;font-weight:600;background:#f5f5f5;cursor:pointer;user-select:none;transition:all .15s}
+.sec-pill-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.adm-card-footer{display:flex;justify-content:flex-end;gap:.5rem;padding-top:.5rem;border-top:1px dashed #eee}
+
+/* --- Redesigned Modern Public Sections (Trust, FAQ, Branches, Footer) --- */
+.trust-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin:1.5rem 0}
+@media(min-width:760px){.trust-metrics{grid-template-columns:repeat(4,1fr);gap:1.2rem}}
+.metric-box{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:1rem;text-align:center;box-shadow:0 3px 0 var(--tag)}
+.metric-val{font-family:'Baloo 2',sans-serif;font-size:1.8rem;font-weight:800;color:var(--red);line-height:1.1}
+.metric-lbl{font-size:.85rem;color:#444;font-weight:600;margin-top:.2rem}
+
+.trust-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.5rem 0}
+@media(min-width:680px){.trust-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
+.trust-card{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:1.3rem;display:flex;flex-direction:column;gap:.6rem;transition:transform .2s,box-shadow .2s}
+.trust-card:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
+.trust-card-icon{font-size:2rem;line-height:1}
+.trust-card h3{margin:0;font-size:1.2rem}
+.trust-card p{margin:0;font-size:.92rem;color:#444;line-height:1.5}
+
+/* Interactive FAQ Accordion */
+.faq-box{margin:2rem 0;display:grid;gap:.8rem}
+.faq-item{border:2px solid var(--ink);border-radius:10px;background:#fff;overflow:hidden;transition:border-color .2s}
+.faq-item[open]{border-color:var(--red);box-shadow:0 4px 0 rgba(198,40,40,.15)}
+.faq-summary{padding:1rem 1.2rem;font-family:'Baloo 2',sans-serif;font-size:1.15rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;background:#fafafa}
+.faq-summary::-webkit-details-marker{display:none}
+.faq-summary:hover{background:#f0f0f0}
+.faq-icon{font-size:1.2rem;transition:transform .2s;color:var(--red)}
+.faq-item[open] .faq-icon{transform:rotate(45deg)}
+.faq-content{padding:1rem 1.2rem;border-top:1px solid #eee;font-size:.95rem;color:#333;line-height:1.6;background:#fff}
+
+/* Interactive Wholesale Tier Calculator */
+.wholesale-box{background:var(--steel);border:2px solid var(--ink);border-radius:14px;padding:1.5rem;margin:2rem 0}
+.wholesale-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.2rem 0}
+.tier-card{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:1rem;cursor:pointer;transition:all .2s;text-align:center}
+.tier-card:hover{transform:translateY(-2px)}
+.tier-card.selected{border-color:var(--red);background:#fff9f9;box-shadow:0 4px 0 var(--red)}
+.tier-card h4{margin:0 0 .3rem;font-size:1.1rem}
+.tier-discount{display:inline-block;background:var(--tag);font-family:'Baloo 2',sans-serif;font-weight:800;padding:.2rem .6rem;border-radius:4px;font-size:1rem;margin-bottom:.4rem}
+
+/* Interactive Branch Hub */
+.branch-hub{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:1.5rem;margin:2rem 0}
+.branch-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.branch-tab-btn{padding:.6rem 1rem;border:2px solid var(--ink);border-radius:8px;background:#fff;font-family:'Baloo 2',sans-serif;font-size:1rem;font-weight:700;cursor:pointer}
+.branch-tab-btn.active{background:var(--ink);color:#fff}
+.branch-card{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.2rem;background:#fafafa;display:grid;gap:.8rem}
+.branch-status{display:inline-flex;align-items:center;gap:.4rem;color:#2e7d32;font-weight:700;font-size:.85rem}
+.branch-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem}
+
+/* Award-Winning Redesigned Dark Footer */
+.modern-footer{background:#0f172a;color:#cbd5e1;padding:3.5rem 0 2rem;border-top:4px solid var(--tag)}
+.modern-footer a{color:#f8fafc;text-decoration:none;transition:color .15s}
+.modern-footer a:hover{color:var(--tag)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:680px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+.foot-brand h3{color:#fff;font-size:1.6rem;margin:0 0 .5rem}
+.foot-brand p{color:#94a3b8;font-size:.92rem;line-height:1.6;margin:0 0 1rem}
+.foot-socials{display:flex;gap:.6rem;flex-wrap:wrap}
+.foot-social-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .8rem;border:1px solid #334155;border-radius:99px;font-size:.85rem;font-weight:600;background:#1e293b;color:#f8fafc}
+.foot-social-pill:hover{background:#334155;color:var(--tag);border-color:var(--tag)}
+.foot-col h4{color:#fff;font-family:'Baloo 2',sans-serif;font-size:1.2rem;margin:0 0 .8rem;letter-spacing:.3px}
+.foot-links{list-style:none;padding:0;margin:0;display:grid;gap:.4rem;font-size:.92rem}
+.foot-contact-item{display:flex;flex-direction:column;gap:.2rem;margin-bottom:.8rem;font-size:.9rem}
+.foot-contact-item strong{color:#fff}
+.foot-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #1e293b;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:#64748b}

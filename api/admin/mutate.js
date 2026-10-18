@@ -49,14 +49,22 @@ export default async function handler(req, res) {
           note: product.note || '',
           e: product.e || '🛍️',
           img: product.img || '',
+          fallback_url: product.fallback_url || product.fallbackUrl || '',
           image_path: product.image_path || null,
           q: product.q || '',
           updated_at: new Date().toISOString()
         };
 
-        const { error: pErr } = await supabase
+        let { error: pErr } = await supabase
           .from('NT_products')
           .upsert(productData);
+
+        // Graceful fallback if fallback_url column has not been added to Supabase DB yet
+        if (pErr && pErr.code === 'PGRST204' && pErr.message?.includes('fallback_url')) {
+          const { fallback_url, ...legacyProductData } = productData;
+          const retryRes = await supabase.from('NT_products').upsert(legacyProductData);
+          pErr = retryRes.error;
+        }
 
         if (pErr) throw pErr;
 

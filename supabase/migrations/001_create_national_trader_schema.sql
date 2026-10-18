@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS "NT_products" (
   "note" TEXT,
   "e" TEXT DEFAULT '🛍️',
   "img" TEXT,
+  "fallback_url" TEXT,
   "image_path" TEXT,
   "q" TEXT,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
