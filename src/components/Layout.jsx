@@ -125,17 +125,22 @@ export default function Layout() {
               </a>
               <span
                 className="admin-footer-trigger"
+                onClick={() => navigate('/admin')}
                 onDoubleClick={() => navigate('/admin')}
                 onKeyDown={e => { if (e.key === 'Enter') navigate('/admin'); }}
                 tabIndex={0}
                 role="button"
                 aria-label="Staff portal entrance"
-                title="Double-click to open Staff Admin portal"
+                title="Tap or click to open Staff Admin portal"
+                style={{ cursor: 'pointer', padding: '0.4rem 0.6rem', display: 'inline-block' }}
               >
                 {' '}🔒
               </span>
             </div>
           </div>
+
+          {/* Empty space below the last line so floating WhatsApp button never covers the credits/lock icon */}
+          <div className="foot-mobile-spacer" aria-hidden="true" />
         </div>
       </footer>
 

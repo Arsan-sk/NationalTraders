@@ -80,9 +80,12 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero-in">
           <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem', background: '#ffe4e6', color: '#b91c1c', padding: '.35rem .85rem', borderRadius: '999px', fontWeight: 700, fontSize: '.9rem', marginBottom: '.8rem', border: '1px solid #fecdd3' }}>
+              <span>★</span> 1,000+ Happy Customers
+            </div>
             <h1>Ghar ka saaman, bazaar ke bhaav.</h1>
             <p className="lead">
-              Direct from Jafar Bhai's National Trader in Bhiwandi. High-grade stainless steel cookware, ₹20 daily essentials, glassware, bottles, and appliances. Retail or wholesale, delivered all over India.
+              Direct from Jafar Bhai's National Trader (National Traders) in Bhiwandi. High-grade stainless steel cookware, ₹20 daily essentials, glassware, bottles, and appliances. Retail or wholesale, delivered all over India.
             </p>
             <div className="cta">
               <Link className="btn red" to="/products">
@@ -199,15 +202,15 @@ export default function Home() {
                 Why Families and Shopkeepers Pick Us
               </h2>
               <p className="lead" style={{ margin: '0 auto' }}>
-                Thousands of Indian households and local merchants trust Jafar Bhai's National Trader for honest pricing and verified quality.
+                Over 1,000+ happy customers and local merchants trust Jafar Bhai's National Trader for honest pricing and verified quality.
               </p>
             </div>
 
             {/* Live Trust Metrics Ticker */}
             <div className="trust-metrics">
               <div className="metric-box">
-                <div className="metric-val">15,000+</div>
-                <div className="metric-lbl">Happy Customers Across India</div>
+                <div className="metric-val">1,000+</div>
+                <div className="metric-lbl">Happy Customers</div>
               </div>
               <div className="metric-box">
                 <div className="metric-val">₹20 Deals</div>
