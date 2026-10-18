@@ -1,10 +1,17 @@
 import { useCatalog } from '../store.jsx';
+import SEO from '../components/SEO.jsx';
 
 export default function Contact() {
   const { shop, wa } = useCatalog();
 
   return (
     <section className="wrap sec narrow">
+      <SEO
+        title="Contact & Branch Locations | National Traders Bhiwandi – Jafar Bhai"
+        description="Visit National Traders (National Trader) branches in Bhiwandi at Koter Gate and Shanti Nagar. Call Jafar Bhai at +91 9156924664 / +91 7498774773 or chat on WhatsApp."
+        keywords="National Traders contact, National Trader Bhiwandi phone number, Jafar Bhai phone number, Koter Gate Bhiwandi, Shanti Nagar Bhiwandi, National Trader address"
+        canonicalPath="/contact"
+      />
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <span className="tag" style={{ marginBottom: '.4rem' }}>Direct from Bhiwandi</span>
         <h1 style={{ margin: '.3rem 0' }}>Contact & Branch Locations</h1>

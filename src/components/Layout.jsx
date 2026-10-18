@@ -114,7 +114,7 @@ export default function Layout() {
             <div>
               © 2026 National Trader. All rights reserved. Bhiwandi, Maharashtra.
             </div>
-            <div>
+            <div className="foot-credit-line">
               Designed & Built by{' '}
               <a href="http://arsansk.vercel.app/" target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>
                 Sheikh Mohd Arsan
@@ -138,9 +138,6 @@ export default function Layout() {
               </span>
             </div>
           </div>
-
-          {/* Empty space below the last line so floating WhatsApp button never covers the credits/lock icon */}
-          <div className="foot-mobile-spacer" aria-hidden="true" />
         </div>
       </footer>
 

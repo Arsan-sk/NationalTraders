@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://nationaltraders.vercel.app/sitemap.xml
+Sitemap: https://national-traders.vercel.app/sitemap.xml

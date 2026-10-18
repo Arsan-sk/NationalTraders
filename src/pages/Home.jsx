@@ -5,6 +5,7 @@ import { priceText } from '../lib.js';
 import Carousel from '../components/Carousel.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Reveal from '../components/Reveal.jsx';
+import SEO from '../components/SEO.jsx';
 
 const budgets = [20, 100, 500, 2000];
 
@@ -76,6 +77,12 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="National Traders Bhiwandi | National Trader – Jafar Bhai (Jaffer) | Wholesale & Retail Steel Utensils & ₹20 Store"
+        description="National Traders (National Trader) in Bhiwandi by Jafar Bhai (Jaffer). Direct wholesale & retail steel cookware, ₹20 bazaar items, 32-pc dinner sets, home appliances. Branches at Koter Gate & Shanti Nagar. Pan-India delivery."
+        keywords="National Traders, National Trader, National Traders Bhiwandi, National Trader Bhiwandi, Jafar, Jafar Bhai, Jaffer, Jaffer Bhai, Jafar National Trader, Jaffer National Traders, Atlantic Waves Jafar, Bhiwandi wholesale market, steel utensils Bhiwandi, 20 rupees store Bhiwandi, ₹20 store, dinner sets Bhiwandi, Koter Gate Bhiwandi, Shanti Nagar Bhiwandi"
+        canonicalPath="/"
+      />
       {/* Hero Section */}
       <section className="hero">
         <div className="wrap hero-in">

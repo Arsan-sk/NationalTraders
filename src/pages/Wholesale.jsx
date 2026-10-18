@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCatalog } from '../store.jsx';
+import SEO from '../components/SEO.jsx';
 
 export default function Wholesale() {
   const { wa, shop } = useCatalog();
@@ -14,6 +15,12 @@ export default function Wholesale() {
 
   return (
     <section className="wrap sec narrow">
+      <SEO
+        title="Wholesale Kitchenware & Utensils | National Traders Bhiwandi – Jafar Bhai"
+        description="Wholesale bulk orders and carton rates for shopkeepers, caterers, and resellers from National Trader Bhiwandi by Jafar Bhai. All-India transport."
+        keywords="National Traders wholesale, Bhiwandi wholesale market, steel utensils wholesale India, 20 rs store bulk wholesale, Jafar Bhai wholesale Bhiwandi"
+        canonicalPath="/wholesale"
+      />
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <span className="tag" style={{ marginBottom: '.4rem' }}>Bhiwandi Mandi Rates</span>
         <h1 style={{ margin: '.3rem 0' }}>Wholesale for Shopkeepers & Bulk Buyers</h1>
