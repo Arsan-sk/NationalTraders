@@ -223,8 +223,9 @@ nav{width:100%;justify-content:space-between;gap:.25rem}nav a{flex:1;min-height:
 .foot-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #1e293b;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:#64748b;position:relative;z-index:2}
 .foot-credit-line{display:inline-flex;align-items:center;gap:.3rem;flex-wrap:wrap}
 @media(max-width:767px){
-  .foot-bottom{flex-direction:column;text-align:center;gap:.75rem}
-  .foot-credit-line{padding-bottom:calc(44px + 10px);justify-content:center}
+  .modern-footer{padding:2.5rem 0 .75rem}
+  .foot-bottom{margin-top:1.5rem;padding-top:1rem;flex-direction:column;text-align:center;gap:.5rem}
+  .foot-credit-line{padding-bottom:.5rem;justify-content:center}
 }
 
 /* --- Red Sticky Admin App Bar (Landing-page style) --- */
