@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useCatalog } from '../store.jsx';
 import { priceText } from '../lib.js';
@@ -183,6 +183,42 @@ function AdminDashboard({ onLogout }) {
   const [activeTab, setActiveTab] = useState('overview'); // overview | products | featured | settings
   const [viewMode, setViewMode] = useState('cards'); // cards | table
   const [feedback, setFeedback] = useState({ text: '', type: 'ok' });
+
+  // Auto-hiding navbar: slides up on scroll down, slides down on scroll up / roll back
+  const [navVisible, setNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const diff = currentScrollY - lastScrollY.current;
+          if (currentScrollY <= 40) {
+            setNavVisible(true);
+          } else if (diff > 8) {
+            // Scrolling down -> slide up out of view
+            setNavVisible(false);
+          } else if (diff < -8) {
+            // Rolling back / scrolling up -> slide down into view
+            setNavVisible(true);
+          }
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // When switching tabs, ensure navbar is visible
+  useEffect(() => {
+    setNavVisible(true);
+  }, [activeTab]);
   const [modalOpen, setModalOpen] = useState(false);
   const [formProduct, setFormProduct] = useState(BLANK_PRODUCT);
   const [formSections, setFormSections] = useState([]);
@@ -361,8 +397,8 @@ function AdminDashboard({ onLogout }) {
 
   return (
     <>
-      {/* Top Sticky Red App Bar (Landing-page style) */}
-      <header className="adm-head">
+      {/* Top Sticky Red App Bar (Auto-hiding on scroll down, sliding down on scroll up) */}
+      <header className={`adm-head ${navVisible ? '' : 'hidden'}`}>
         <div className="wrap adm-bar">
           <div className="adm-brand-group">
             <Link to="/" className="logo">
